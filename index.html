@@ -1,166 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="full-screen" content="yes" />
-    <meta name="screen-orientation" content="portrait">
-    <meta name="browsermode" content="application" />
-    <meta name="x5-orientation" content="portrait" />
-    <meta name="x5-fullscreen" content="true" />
-    <meta name="x5-page-mode" content="app" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script>
-      //     (function(){
 
-      // var deviceWidth = parseInt(window.screen.width);  //获取当前设备的屏幕宽度
-      // var deviceScale = deviceWidth / 360;  //得到当前设备屏幕与640之间的比例，之后我们就可以将网页宽度固定为320px
-      // document.write('<meta name="viewport" content="width=360,initial-scale=' + deviceScale + ', minimum-scale = ' + deviceScale + ', maximum-scale = ' + deviceScale + ', target-densitydpi=device-dpi">');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta target="_blank">
+    <link rel="shortcut icon" href="./images/2.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/personal-info-main.css">
+    <link rel="stylesheet" href="./CSS/personal-info-animate.css">
+    <link rel="stylesheet" href="./CSS/animate.min.css">
+    <link href="./CSS/aos.css" rel="stylesheet">
 
-      // })()
-    </script>
-    <title>华为音乐</title>
-  </head>
-  <body>
-    <link rel="stylesheet" href="./src//scss/index.scss" />
-    <div id="player" class="player">
-      <div class="header">
-        <!-- <div class="clear"></div> -->
-        <h1>有些事现在不做一辈子都不会做了</h1>
-        <p>五月天-第二人生</p>
-      </div>
-      <div class="area-effect">
-        <div class="balls">
-          <span class="balls-current"></span>
-          <span></span>
-        </div>
-        <div class="parnel-effect">
-          <div class="effect">
-            <!-- 使用svg -->
-            <div class="effect1"></div>
-            <div class="effect2"></div>
-            <div class="effect3"></div>
-          </div>
-          <div class="lyrics">
-            <p class="current">那么你和人们的不同 就看你怎么活</p>
-            <p>想象你的白发 皱纹 紧贴着你的轮廓</p>
-          </div>
-        </div>
-        <div class="panellyrics"></div>
-      </div>
-      <div class="buttons">
-        <svg width="20" height="20"><use xlink:href="#喜欢" /></svg>
-        <svg width="20" height="20"><use xlink:href="#下载" /></svg>
-        <svg width="20" height="20"><use xlink:href="#分享" /></svg>
-        <svg width="20" height="20"><use xlink:href="#评论" /></svg>
+    <title>关于我</title>
 
-        <!-- 喜欢 -->
-        <!-- <svg
-          t="1551080439789"
-          id="like"
-          style=""
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="7883"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="20"
-          height="20"
-        >
-          <defs><style type="text/css"></style></defs>
-          <path
-            d="M559.240533 916.701867a68.2496 68.2496 0 0 1-94.446933-0.034134L144.0768 609.1776C143.633067 608.8192 17.066667 497.0496 17.066667 357.034667 17.066667 191.300267 122.026667 88.354133 291.054933 88.354133c89.309867 0 172.100267 61.064533 220.945067 106.0352 48.810667-44.970667 131.601067-106.0352 220.945067-106.0352C901.9392 88.354133 1006.933333 191.300267 1006.933333 357.034667c0 121.7024-96.938667 223.880533-126.634666 252.3136L559.240533 916.701867z"
-            fill="#d4237a"
-            p-id="7884"
-          ></path>
-        </svg> -->
-        <!-- 下载 -->
-        <!-- <svg
-          t="1551080473346"
-          class="icon"
-          id="download"
-          style=""
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="8702"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="20"
-          height="20"
-        >
-          <defs><style type="text/css"></style></defs>
-          <path
-            d="M168.064 498.7008l325.8368 325.8368c2.3936 2.3936 5.184 4.1856 8.1408 5.4272 0.0128 0 0.0128 0.0128 0.0256 0.0128 1.2544 0.5248 2.5472 0.8832 3.8528 1.2032 0.3456 0.0896 0.6656 0.2304 1.024 0.3072 3.3408 0.6656 6.784 0.6656 10.112 0 0.3584-0.0768 0.6784-0.2176 1.024-0.3072 1.3056-0.32 2.5984-0.6784 3.8528-1.2032 0.0128-0.0128 0.0256-0.0128 0.0512-0.0256 2.9568-1.2416 5.7216-3.0336 8.1152-5.4272L855.936 498.7008c9.9584-9.9584 9.9584-26.2528 0-36.1984-9.9584-9.9584-26.2528-9.9584-36.1984 0L537.6 744.64 537.6 89.6128c0-14.08-11.52-25.6-25.6-25.6-14.08 0-25.6 11.52-25.6 25.6l0 655.0272L204.2624 462.5024c-9.9584-9.9584-26.2528-9.9584-36.1984 0C158.1056 472.4608 158.1056 488.7424 168.064 498.7008z"
-            p-id="8703"
-            fill="#d4237a"
-          ></path>
-          <path
-            d="M972.8 729.6l0 128c0 28.2752-22.9248 51.2-51.2 51.2L102.4 908.8c-28.2752 0-51.2-22.9248-51.2-51.2L51.2 729.6c0-14.144-11.456-25.6-25.6-25.6l0 0c-14.144 0-25.6 11.456-25.6 25.6l0 128c0 56.32 46.08 102.4 102.4 102.4l819.2 0c56.32 0 102.4-46.08 102.4-102.4L1024 729.6c0-14.144-11.456-25.6-25.6-25.6l0 0C984.256 704 972.8 715.456 972.8 729.6z"
-            p-id="8704"
-            fill="#d4237a"
-          ></path>
-        </svg> -->
-        <!-- 分享 -->
-        <!-- <svg
-          t="1551080498628"
-          style=""
-          id="share"
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="10902"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="20"
-          height="20"
-        >
-          <defs><style type="text/css"></style></defs>
-          <path
-            d="M241.716115 782.898601s-0.797747 5.987618-0.31368 9.363442v0.189051c1.394401 14.577395 13.672479 25.971028 28.608108 25.971027 14.941047 0 26.326251-11.059482 28.608108-25.971027l2.266204-13.160717c111.685774-465.148473 460.749125-546.430757 619.803004-558.8437L760.021026 370.37674c-11.423736 11.172672-11.63386 29.666553-0.461189 41.090891 11.173876 11.427951 29.666553 11.63988 41.09631 0.466005l214.03219-199.734759c5.800975-5.669723 8.70357-13.227547 8.703569-20.793198 0.181826-9.835467-4.610074-19.557142-13.48403-25.175689L748.853773 8.058749c-13.500888-8.549439-31.544419-4.490864-40.093256 9.011229-8.549439 13.506307-4.497486 31.549235 9.010025 40.098072l179.135428 108.539942C340.083429 218.910186 251.898377 707.344441 241.716115 782.898601z m0 0"
-            p-id="10903"
-            fill="#d4237a"
-          ></path>
-          <path
-            d="M1023.397927 570.647344c0-16.05127-13.011403-29.057255-29.062673-29.057255-16.044647 0-29.057857 13.005984-29.057857 29.057255 0 0.143895 0.012041 0.27876 0.012041 0.421451h-0.012041v298.870318c0 24.975801-9.834865 48.568639-27.697171 66.430344-17.867123 17.861102-41.454543 27.703794-66.42914 27.703794H156.763593c-24.974597 0-48.563221-9.842692-66.429139-27.703794-17.861102-17.861704-27.696569-41.454543-27.696569-66.430344V235.012031c0-24.976403 9.835467-48.568639 27.696569-66.429742C108.194954 150.720585 131.788997 140.885118 156.763593 140.885118h186.387399c16.045852 0 29.057857-13.011403 29.057857-29.063275 0-16.04525-13.011403-29.05605-29.057857-29.056051H156.763593c-83.732722 0-152.246841 68.506894-152.24684 152.246239v634.933705c0 83.733324 68.514119 152.248045 152.24684 152.248045h714.387493c83.732722 0 152.246841-68.514721 152.246841-152.248045V571.068795h-0.012042c0.000602-0.142691 0.012041-0.277556 0.012042-0.421451z m0 0M343.150992 82.765792V140.885118v-58.119326z m0 0"
-            p-id="10904"
-            fill="#d4237a"
-          ></path>
-        </svg> -->
-        <!-- 评论 -->
-        <!-- <svg
-          t="1551080524836"
-          id="commit"
-          style=""
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="11732"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="20"
-          height="20"
-        >
-          <defs><style type="text/css"></style></defs>
-          <path
-            d="M816 808h-144c-4.8 0-8 1.6-11.2 4.8l-80 80c-36.8 36.8-97.6 36.8-136 0l-80-80c-3.2-3.2-6.4-4.8-11.2-4.8h-144c-70.4 0-128-57.6-128-128v-448c0-70.4 57.6-128 128-128h608c70.4 0 128 57.6 128 128v448c-1.6 70.4-59.2 128-129.6 128z m0-64c35.2 0 64-28.8 64-64v-448c0-35.2-28.8-64-64-64H208c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h144c20.8 0 41.6 8 56 24l80 80c12.8 12.8 32 12.8 44.8 0l80-80c14.4-14.4 35.2-24 56-24H816z m-496-336c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z m192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z m192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z"
-            fill="#d4237a"
-            p-id="11733"
-          ></path>
-        </svg> -->
-      </div>
-      <div class="area-bar">
-        <span class="time-start">00:00</span>
-        <span class="time-end">00:00</span>
-        <div class="bar">
-          <div class="progress"></div>
+</head>
+
+
+<body>
+    <div class="fakeLoader"></div>
+
+    <div class="profile-page">
+
+        <div class="page-header">
+
+
+            <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+                <div class="container-fluid container">
+                    <a class="navbar-brand log" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="#about">基本资料</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#skill">专业技能</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#project">项目经验</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#work">工作经历</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#others">其他经历</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contact">联系方式</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="#about" class="go" title="Read More">
+                <svg t="1628741268385" class="j-icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="5238" width="32" height="32">
+                    <path
+                        d="M780.190476 498.070349c0 4.534857-2.21054 9.638603-5.461333 13.003175l-255.024762 263.476825c-3.299556 3.397079-8.208254 5.640127-12.580571 5.640127-4.388571 0-9.313524-2.275556-12.580572-5.640127l-255.024762-263.476825a19.732317 19.732317 0 0 1-5.461333-13.003175c0-4.518603 2.21054-9.622349 5.461333-12.98692l27.355429-28.265651c3.299556-3.397079 7.671873-5.640127 12.580571-5.640127 4.388571 0 9.313524 2.275556 12.564318 5.640127L507.12381 679.042032l215.105015-222.224254c3.283302-3.397079 8.192-5.640127 12.564318-5.640127 4.388571 0 9.313524 2.275556 12.580571 5.640127l27.355429 28.281905c3.283302 3.380825 5.461333 8.452063 5.461333 12.970666z m0-217.120508c0 4.534857-2.21054 9.638603-5.461333 13.003175l-255.024762 263.476825c-3.299556 3.397079-8.208254 5.640127-12.580571 5.640127-4.388571 0-9.313524-2.275556-12.580572-5.640127l-255.024762-263.476825a19.732317 19.732317 0 0 1-5.461333-13.003175c0-4.518603 2.21054-9.622349 5.461333-12.98692l27.355429-28.265651c3.299556-3.397079 7.671873-5.640127 12.580571-5.640127 4.388571 0 9.313524 2.275556 12.564318 5.640127L507.12381 461.937778l215.105015-222.224254c3.283302-3.397079 8.192-5.640127 12.564318-5.640127 4.388571 0 9.313524 2.275556 12.580571 5.640127l27.355429 28.281905c3.283302 3.380825 5.461333 8.452063 5.461333 12.970666z"
+                        p-id="5239" fill="#1296db"></path>
+                </svg>
+            </a>
+            <div class="page-header-mask"></div>
+            <div class="page-header-particles" id="particles-js"></div>
+
+
+            <div class="container">
+                <div class="col-sm-12  .col-xs-12">
+                    <div class="left-content">
+                        <div class="row-no-use" style="height: 40px;"></div>
+                        <div class="personalImage">
+                            <a href="javascript:void(0)">
+                                <img class="myphoto" src="" alt="个人图片">
+                            </a>
+                        </div>
+
+                        <div class="name-container">
+                            <h2 class="name"><br></h2>
+                        </div>
+
+                        <div class="motto-container">
+                            <p class="motto"></p>
+                        </div>
+
+                        <div class="intro-container bb">
+                            <span class="info self-intro ">
+                                青青子衿，悠悠我心<br>
+                                但为君故，沉吟至今<br>
+                                相遇即是缘分<br>
+                                很高兴见到你!
+                            </span>
+                        </div>
+
+                        <div id="myButtons2" class="bs-example">
+                            <a href="#contact" class="hvr-bounce-to-right animate__backInRight">联系我</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-      </div>
-      <div class="actions">
-        <svg width="40" height="40"><use xlink:href="#顺序播放" /></svg>
-        <svg width="40" height="40"><use xlink:href="#上一首" /></svg>
-        <svg width="60" height="60"><use xlink:href="#播放" /></svg>
-        <svg width="40" height="40"><use xlink:href="#下一首" /></svg>
-        <svg width="40" height="40"><use xlink:href="#列表" /></svg>
-      </div>
+
+        <section class="about-section" id="about">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up" data-aos-offset="10">基本资料</h2>
+                <div class="card" data-aos="fade-up" data-aos-offset="100">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card-body">
+                                <div class="h4 mt-0 title">关于我</div>
+                                <span class="me"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <div class="card-body">
+                                <div class="h4 mt-0 title">基本信息</div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-xs-4"><strong>姓名:</strong></div>
+                                    <div class="col-sm-8 col-xs-8 gg name"></div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-4"><strong>性别:</strong></div>
+                                    <div class="col-sm-8 sex"></div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-4"><strong class="text-uppercase">年龄:</strong></div>
+                                    <div class="col-sm-8 age"></div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-4"><strong class="text-uppercase">电话:</strong></div>
+                                    <div class="col-sm-8 phone"></div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-4"><strong class="text-uppercase">邮箱:</strong></div>
+                                    <div class="col-sm-8 email"></div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-4"><strong class="text-uppercase">地址:</strong></div>
+                                    <div class="col-sm-8 address"></div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-sm-4"><strong class="text-uppercase">期望岗位:</strong></div>
+                                    <div class="col-sm-8 for-work"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skill-section" id="skill">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up" data-aos-offset="10">专业技能</h2>
+                <div class="card" data-aos="fade-up" data-aos-offset="100" data-aos-anchor-placement="top-bottom">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 p">
+                            <div class="card-body skill-body">
+                                <!-- <div class="progress_bar">
+                                    <div class="pro-bar">
+                                        <small class="progress_bar_title">
+                                            Java
+                                            <span class="progress_number">%</span>
+                                        </small>
+                                        <span class="progress-bar-inner p-a"
+                                            style="background-color: #1abc9c; width: 80%;" data-value="80"
+                                            data-percentage-value="80"></span>
+                                    </div>
+                                </div>
+
+                                <div class="progress_bar">
+                                    <div class="pro-bar">
+                                        <small class="progress_bar_title">
+                                            GoLang
+                                            <span class="progress_number">%</span>
+                                        </small>
+                                        <span class="progress-bar-inner p-a"
+                                            style="background-color: #bc1a99; width: 77%;" data-value="77"
+                                            data-percentage-value="77"></span>
+                                    </div>
+                                </div>
+
+                                <div class="progress_bar">
+                                    <div class="pro-bar">
+                                        <small class="progress_bar_title">
+                                            SQL
+                                            <span class="progress_number">%</span>
+                                        </small>
+                                        <span class="progress-bar-inner p-a"
+                                            style="background-color: #cedf3c; width: 75%;" data-value="75"
+                                            data-percentage-value="75"></span>
+                                    </div>
+                                </div>
+
+                                <div class="progress_bar">
+                                    <div class="pro-bar">
+                                        <small class="progress_bar_title">
+                                            HTML5
+                                            <span class="progress_number">%</span>
+                                        </small>
+                                        <span class="progress-bar-inner p-a"
+                                            style="background-color: #ec1b1b; width: 67%;" data-value="67"
+                                            data-percentage-value="67"></span>
+                                    </div>
+                                </div>
+
+                                <div class="progress_bar">
+                                    <div class="pro-bar">
+                                        <small class="progress_bar_title">
+                                            CSS3
+                                            <span class="progress_number">%</span>
+                                        </small>
+                                        <span class="progress-bar-inner p-a"
+                                            style="background-color: #c95a11; width: 60%;" data-value="60"
+                                            data-percentage-value="60"></span>
+                                    </div>
+                                </div>
+
+                                <div class="progress_bar">
+                                    <div class="pro-bar">
+                                        <small class="progress_bar_title">
+                                            JavaScript
+                                            <span class="progress_number">%</span>
+                                        </small>
+                                        <span class="progress-bar-inner p-a"
+                                            style="background-color: #2a1abc; width: 70%;" data-value="70"
+                                            data-percentage-value="70"></span>
+                                    </div>
+                                </div> -->
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-12 skill-about">
+                            <div class="card-body">
+                                <div class="h4 mt-0 title">技能描述</div>
+                                <div class="desc">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-section" id="project">
+            <div class="tab-content gallery mt-5">
+                <h2 class="section-title" data-aos="fade-up" data-aos-offset="10">作品展示</h2>
+                <div class="container">
+                    <div class="ml-auto mr-auto portfolio-section-main-container">
+                        <!-- <div class="row">
+                            <div class="col-md-4">
+                                <div class="porfolio-image img-raised" data-aos="fade-up"
+                                    data-aos-anchor-placement="top-bottom">
+                                    <a href="#web-development" title="点击查看详细信息">
+                                        <figure class="portfolio-section-main"><img src="./images/index_background.jpg"
+                                                alt="Image" />
+                                            <figcaption>
+                                                <div class="h4">Project2</div>
+                                                <p>qrwqrqrwq</p>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="porfolio-image img-raised" data-aos="fade-up"
+                                    data-aos-anchor-placement="top-bottom">
+                                    <a href="#web-development" title="点击查看详细信息">
+                                        <figure class="portfolio-section-main"><img src="./images/index_background.jpg"
+                                                alt="Image" />
+                                            <figcaption>
+                                                <div class="h4">Project3</div>
+                                                <p>qwrwqrqwrwqrqwsa</p>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="porfolio-image img-raised" data-aos="fade-up"
+                                    data-aos-anchor-placement="top-bottom">
+                                    <a href="#web-development" title="点击查看详细信息">
+                                        <figure class="portfolio-section-main">
+                                            <img src="./images/index_background.jpg" alt="Image" />
+                                            <figcaption>
+                                                <div class="h4">Project1</div>
+                                                <p>qeweq</p>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="porfolio-image img-raised" data-aos="fade-up"
+                                    data-aos-anchor-placement="top-bottom">
+                                    <a href="#web-development" title="点击查看详细信息">
+                                        <figure class="portfolio-section-main"><img src="./images/index_background.jpg"
+                                                alt="Image" />
+                                            <figcaption>
+                                                <div class="h4">Project2</div>
+                                                <p>qrwqrqrwq</p>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="porfolio-image img-raised" data-aos="fade-up"
+                                    data-aos-anchor-placement="top-bottom">
+                                    <a href="#web-development" title="点击查看详细信息">
+                                        <figure class="portfolio-section-main"><img src="./images/index_background.jpg"
+                                                alt="Image" />
+                                            <figcaption>
+                                                <div class="h4">Project3</div>
+                                                <p>qwrwqrqwrwqrqwsa</p>
+                                            </figcaption>
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <section class="experience-section" id="work">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-in" data-aos-offset="10">工作经历</h2>
+                <!-- <div class="card">
+                    <div class="row">
+                        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50"
+                            data-aos-duration="500">
+                            <div class="card-body">
+                                <p class="time">
+                                    2020/7/1 — 2021/8/10
+                                </p>
+                                <strong class="work"><br> 阎王殿实习生</strong>
+                            </div>
+                        </div>
+                        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+                            <div class="card-body">
+                                <p><strong>阎王殿研发部</strong></p>
+                                <p>随着阴历7月15中元节的到来，阎王殿的任务愈发庞大，我以及我所在小组主要负责阎王谱后台部分，拟在解决千万访问并发问题，经过不械努力，使得产品稳定、高效的运行。</p>
+                                <p>随着阴历7月15中元节的到来，阎王殿的任务愈发庞大，我以及我所在小组主要负责阎王谱后台部分，拟在解决千万访问并发问题，经过不械努力，使得产品稳定、高效的运行。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> -->
+            </div>
+        </section>
+
+
+
+        <section class="others-section" id="others">
+            <div class="container" data-aos="fade-up" data-aos-offset="100">
+                <h2 class="section-title">其它经历</h2>
+                <div class="col-sm-12 col-xs-12">
+                    <div class="content-timeline-border">
+                        <div class="timeline-left">
+                            <span></span>
+                            <ul class="timeul">
+                                <!-- <li>
+                                    <div class="time-title">2021-02-15</div>
+                                    <span></span>
+                                    <div class="time-content">
+                                        <h5>蓝桥杯省三等奖</h5>
+                                        <p>emmmmm。</p>
+                                    </div>
+
+                                </li>
+
+                                <li>
+                                    <div class="time-title">你爱我</div>
+                                    <span></span>
+                                    <div class="time-content">
+                                        <h5>团队程序设计天梯赛团队省二等奖，个人全国三等奖</h5>
+                                        
+                                    </div>
+                                </li> -->
+
+
+                            </ul>
+                        </div>
+                        <div class="timeline-right">
+                            <span></span>
+                            <ul class="timeul">
+                                <!-- <li>
+                                    <div class="time-title">2021-06-15</div>
+                                    <span></span>
+                                    <div class="time-content">
+                                        <h5>校赛三等奖</h5>
+                                        <p></p>
+                                    </div>
+                                </li> -->
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-in" data-aos-offset="10">联系我</h2>
+                <div class="main">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-0" data-aos="zoom-in" data-aos-offset="100">
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-xm-12 col-md-6">
+                                        <div class="card-body">
+
+                                            <p><strong>邮件联系我</strong></p>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="input-group"><span class="input-group-addon"><svg
+                                                                t="1628783460111" class="icon" viewBox="0 0 1024 1024"
+                                                                version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                                p-id="2051" width="16" height="16">
+                                                                <path
+                                                                    d="M550.079952 1023.808H229.120354A132.607834 132.607834 0 0 1 96.00052 891.712165V132.097115A132.479834 132.479834 0 0 1 229.120354 0.00128h565.759292c73.471908 0 133.119834 59.071926 133.119834 132.095835v627.519215c1.919998 126.143842-127.80784 265.471668-266.239667 264.19167H550.079952V1024h75.391906v-195.071756c0-48.447939 11.519986-61.119924 58.879927-61.119924h241.407698l-0.639999-74.239907-110.591862 1.151999H636.991844c-81.471898-1.151999-87.167891 54.335932-86.911892 75.903905l-0.255999 9.855987v11.711986l0.255999 231.61571zM337.472218 341.312853h349.055564a35.839955 35.839955 0 0 0 34.943956-36.607954 35.775955 35.775955 0 0 0-34.943956-36.543954H337.472218a35.775955 35.775955 0 0 0-34.943956 36.543954c0 20.223975 15.67998 36.607954 34.943956 36.607954z m104.703869 121.855848H337.472218a35.775955 35.775955 0 0 0-34.943956 36.543954c0 20.159975 15.67998 36.543954 34.943956 36.543955h168.703789a35.839955 35.839955 0 0 0 34.943957-36.543955 35.839955 35.839955 0 0 0-34.943957-36.607954h-63.99992z"
+                                                                    p-id="2052">
+
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                                        <input class="form-control subject" type="text" name="Subject"
+                                                            placeholder="主题" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <textarea class="form-control message" name="message"
+                                                            placeholder="message" rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button class="btn btn-primary send-btn">Send</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card-body">
+                                            <p class="mb-0"><strong>电话</strong></p>
+                                            <p class="pb-2 phone"></p>
+                                            <p class="mb-0"><strong>邮箱</strong></p>
+                                            <p class="pb-2 email"></p>
+                                            <p class="mb-0"><strong>地址</strong></p>
+                                            <p class="pb-2 address"></p>
+                                            <p class="mb-0"><strong>QQ</strong></p>
+                                            <p class="qq"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <dic class="card-body">
+                                            <div class="container text-center icon-insert">
+
+                                                <!-- <a class="my-tooltip" href="#" title="访问我的CSDN主页">
+                                                    <img src="./svg/csdn.svg" alt="我的CSDN主页">
+
+                                                    <span class="my-tooltiptext">我的CSDN主页</span>
+                                                </a>
+
+                                                <a class="my-tooltip" href="#" title="访问我的CSDN主页">
+                                                    <img src="./svg/github.svg" alt="">
+                                                    <span class="my-tooltiptext">我的Github主页</span>
+                                                </a> -->
+
+                                            </div>
+                                        </dic>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <script src="./src/js/index.js"></script>
-  </body>
+    <section class="footer">
+        <div style="padding: 20px;" class="container">
+            中网文（2018)228-024号 | Copyright 2020-2030 me.com All Rights Reserved| 郑公备：41011002002133215 | 豫公网安备
+            x-41010202002051号
+        </div>
+    </section>
+</body>
+<script src="./JS/jquery-3.6.0.js">
+</script>
+<script src="./JS/popper.min.js">
+</script>
+<script src="./JS/bootstrap.min.js">
+</script>
+
+<script src="./JS/particles.min.js"></script>
+<script src="./JS/app.js"></script>
+<script src="./JS/aos.js"></script>
+<script src="./JS/personal-info-main.js"></script>
+<script>
+    AOS.init();
+</script>
+
+
+
 </html>
